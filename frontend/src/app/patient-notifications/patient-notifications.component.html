@@ -1,0 +1,29 @@
+<app-navigation-patient></app-navigation-patient>
+
+<legend class="text-center">Notifications</legend>
+
+<div class="table-responsive-sm m-2">
+    <table class="table table-light table-bordered border-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Number</th>
+            <th>Message</th>
+            <th>Date</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let notification of notifications; let i = index">
+            <td [ngClass]="{'table-danger':!notification.active}">{{i + 1}}</td>
+            <td>{{notification.name}}</td>
+            <td>{{notification.description}}</td>
+            <td>
+                {{toLocalDate(notification.date)}}
+                <br>
+                {{toLocaleTimeString(notification.date)}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+
+# Angular build output
+/dist
+/out-tsc
+/tmp
+/.angular
+
+# Node dependencies
+/node_modules
+
+# Environment files (keep secrets out of Git)
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
+# IDE and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log
+yarn-error.log

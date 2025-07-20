@@ -1,0 +1,93 @@
+<app-navigation-doctor></app-navigation-doctor>
+
+<legend class="text-center">My Appointments</legend>
+<br>
+
+
+<div class="table-responsive-sm m-2">
+    <table class="table table-light table-bordered border-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Patient</th>
+            <th>Remarks</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th>Reason</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let appointment of appointments;  let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{appointment.appointmentType}}</td>
+            <td>
+                {{appointment.patientInfo?.firstname}} {{appointment.patientInfo?.lastname}}
+            </td>
+            <td>{{appointment.reason}}</td>
+            <td>
+                {{toLocalDate(appointment.date)}}
+            </td>
+            <td>
+                {{toLocaleTimeString(appointment.date)}}
+            </td>
+            <td *ngIf="appointment.canceled" class="table-danger">Cancelled</td>
+            <td *ngIf="!appointment.canceled" class="table-success">Active</td>
+            <td>
+                <div class="d-grid">
+                    <button [ngClass]="{'disabled' : appointment.canceled}" (click)="cancelAppointment(appointment)"
+                            class="btn btn-secondary  btn-sm"
+                            type="button">Otkaži
+                    </button>
+                </div>
+            </td>
+            <td *ngIf="!appointment.canceled">
+                <input [(ngModel)]="appointment.reasonForCanceling" type="text" class="form-control"
+                       placeholder="Reason for cancelling.">
+            </td>
+            <td *ngIf="appointment.canceled">
+                <input disabled [(ngModel)]="appointment.reasonForCanceling" type="text" class="form-control">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<legend class="text-center">My Services</legend>
+<br>
+<div class="table-responsive-sm m-2">
+    <table class="table table-light table-bordered border-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Short Description</th>
+            <th>Description</th>
+            <th>Specilization</th>
+            <th>Price</th>
+            <th>Duration to consult</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let appointmentType of registeredAppointmentTypes;  let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{appointmentType._id}}</td>
+            <td>{{appointmentType.descriptionStrong}}</td>
+            <td>{{appointmentType.description}}</td>
+            <td>{{appointmentType.specialization}}</td>
+            <td>{{appointmentType.price}}</td>
+            <td *ngIf="appointmentType.approved" class="table-success">Active</td>
+            <td *ngIf="!appointmentType.approved" class="table-danger">Not Active</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="alert" class="alert alert-danger m-2" role="alert">
+    <div>
+        {{message}}
+    </div>
+</div>
+

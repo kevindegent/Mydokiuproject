@@ -1,0 +1,59 @@
+<app-navigation-patient></app-navigation-patient>
+
+<legend class="text-center">My Appointments</legend>
+<div class="alert alert-primary" role="alert">
+  Once you cancel an appointment, it is impossible to activate it again
+</div>
+
+<br/>
+
+
+<!--button for sort-->
+
+
+<button class="btn btn-dark m-2" (click)="sortAppointments()">Sort</button>
+
+
+
+<div class="table-responsive-sm m-2">
+    <table class="table table-light table-bordered border-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Doctor</th>
+            <th>Remarks</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let appointment of appointments;  let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{appointment.appointmentType}}</td>
+            <td>{{appointment.doctorId}}</td>
+            <td>{{appointment.reason}}</td>
+            <td>{{toLocalDate(appointment.date)}}</td>
+            <td>{{toLocaleTimeString(appointment.date)}}</td>
+            <td *ngIf="appointment.canceled" class="table-danger">Cancelled</td>
+            <td *ngIf="!appointment.canceled" class="table-success">Active</td>
+            <td>
+                
+                <div class="d-grid" *ngIf="!appointment.canceled">
+                    <button (click)="cancelAppointment(appointment)" class="btn btn-secondary  btn-sm"
+                            type="button">Cancel
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+

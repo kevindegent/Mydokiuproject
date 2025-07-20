@@ -1,0 +1,24 @@
+# Ignore frontend build and dependencies
+/frontend/node_modules
+/frontend/dist
+/frontend/out-tsc
+/frontend/tmp
+
+# Ignore backend build and dependencies
+/backend/node_modules
+/backend/dist
+/backend/build
+
+# Logs
+**/*.log
+
+# Environment files
+/backend/.env
+/frontend/src/environments/environment.ts
+/frontend/src/environments/environment.prod.ts
+
+# IDE
+.vscode
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,95 @@
+.register-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+.modern-form input,
+.modern-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: none;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.modern-form input:focus,
+.modern-form select:focus {
+  background-color: #e0e7ff;
+  outline: none;
+}
+
+.modern-form select {
+  appearance: none;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-label {
+  font-size: 0.95rem;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+#formFile {
+  width: 100%;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 10px;
+  border: none;
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #111827;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #374151;
+}
+
+.alert-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.alert-box.success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.alert-box.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}

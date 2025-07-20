@@ -1,0 +1,41 @@
+<app-navigation-patient></app-navigation-patient>
+<form class="d-flex m-2">
+  <input class="form-control m-2" name="nameSearchField" [(ngModel)]="searchedFirstname" type="search"
+         placeholder="First Name"
+         aria-label="Search">
+  <input class="form-control m-2" name="nameSearchField" [(ngModel)]="searchedLastname" type="search"
+         placeholder="Last Name"
+         aria-label="Search">
+  <input class="form-control m-2" name="nameSearchField" [(ngModel)]="searchedSpecialization" type="search"
+         placeholder="Specialization"
+         aria-label="Search">
+  <button class="btn btn-outline-secondary m-2" (click)="search()">Search</button>
+</form>
+
+
+
+<br>
+
+<div class="row row-cols-1 row-cols-md-4 m-2">
+
+  <div *ngFor="let doctor of doctors" class="col">
+    <a [routerLink]="'/patient/doctorProfile/' + doctor._id" class="text-decoration-none text-dark">
+      <div class="card h-100">
+        <img src="{{doctor.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{doctor.firstname}} {{doctor.lastname}}</h5>
+          <p class="card-text"></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <small class="text-muted">Specialization:</small>
+            {{doctor.specialization}}
+          </li>
+        </ul>
+
+      </div>
+    </a>
+  </div>
+
+</div>
+

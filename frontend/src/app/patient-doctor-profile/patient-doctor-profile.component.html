@@ -1,0 +1,51 @@
+<app-navigation-patient></app-navigation-patient>
+
+<legend class="text-center">Profile Details</legend>
+
+<form>
+    <fieldset id="fieldset" class="row m-2" disabled>
+
+        <div class="col-md-6">
+            <img alt="" class="img-thumbnail" src="{{doctor.image}}" height="300" width="300">
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputMail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputMail" [(ngModel)]="doctor.mail"
+                   name="email">
+                    <label for="inputFirstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="inputFirstname" [(ngModel)]="doctor.firstname"
+                   name="firstname">
+
+            <label for="inputLastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="inputLastname" [(ngModel)]="doctor.lastname"
+                   name="lastname">
+                    <label for="dropDown" class="form-label">Specilization</label>
+            <input type="text" class="form-control" id="dropDown" [(ngModel)]="doctor.specialization"
+                   name="specialization">
+                       <label for="inputMedicineBranch" class="form-label">Medicine Branch</label>
+            <input type="text" class="form-control" id="inputMedicineBranch" [(ngModel)]="doctor.medicineBranch"
+                   name="medicineBranch">
+        </div>
+
+        <div class="col-md-12">
+
+        </div>
+
+        <div class="col-md-12">
+
+        </div>
+
+    </fieldset>
+    <br>
+</form>
+
+<app-patient-schedule-appointment></app-patient-schedule-appointment>
+
+
+
+

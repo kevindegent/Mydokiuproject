@@ -1,0 +1,59 @@
+<app-navigation-unregistered></app-navigation-unregistered>
+
+<legend class="text-center">Register</legend>
+<br>
+
+<form class="row m-2">
+
+    <div class="col-md-6">
+        <img alt="" class="img-thumbnail" src="{{patient.image}}" height="300" width="300">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputfirstname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="inputfirstname" [(ngModel)]="patient.firstname" name="firstname">
+
+        <label for="inputLastname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="inputLastname" [(ngModel)]="patient.lastname" name="lastname">
+
+        <label for="inputUsername" class="form-label">Username</label>
+        <input type="text" class="form-control" id="inputUsername" [(ngModel)]="patient.username" name="username">
+
+        <label for="inputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="inputPassword" [(ngModel)]="patient.password" name="password">
+
+        <label for="inputConfirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="inputConfirm" [(ngModel)]="passwordConfirm"
+               name="passwordConfirm">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress" [(ngModel)]="patient.address" name="address">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputPhone" class="form-label">Telephone Number</label>
+        <input type="text" class="form-control" id="inputPhone" [(ngModel)]="patient.phone" name="phone">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputMail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputMail" [(ngModel)]="patient.mail" name="email">
+    </div>
+
+    <div class="col-md-6">
+        <label for="formFile" class="form-label">Profile Picture(Not manadatory)</label>
+        <input (change)="onSelectFile($event)" class="form-control" type="file" id="formFile" accept=".png, .jpg">
+    </div>
+    <div>
+        <br>
+    </div>
+    <div class="col-12">
+        <button type="submit" (click)="patientregistration()" class="btn btn-dark">Register</button>
+    </div>
+</form>
+
+<div id="alert" class="alert alert-danger m-2" role="alert">
+    {{message}}
+</div>

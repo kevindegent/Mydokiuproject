@@ -1,0 +1,100 @@
+<app-navigation-doctor></app-navigation-doctor>
+
+<legend class="text-center">Doctor Details</legend>
+
+<form>
+    <fieldset class="row m-2">
+
+        <div class="col-md-6">
+            <img class="img-thumbnail" src="{{doctor.image}}" height="300" width="300">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputFirstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="inputFirstname" [(ngModel)]="doctor.firstname"
+                   name="firstname">
+
+            <label for="inputLastname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="inputLastname" [(ngModel)]="doctor.lastname"
+                   name="lastname">
+        </div>
+
+          <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" [(ngModel)]="doctor.address"
+                   name="address">
+
+            <label for="inputPhone" class="form-label">Telephone</label>
+            <input type="text" class="form-control" id="inputPhone" [(ngModel)]="doctor.phone"
+                   name="phone">
+
+        <div class="col-md-6">
+            <label for="inputMail" class="form-label">Mail ID</label>
+            <input type="email" class="form-control" id="inputMail" [(ngModel)]="doctor.mail"
+                   name="email">
+        </div>
+
+        <div class="col-md-6">
+            <label for="formFile" class="form-label">Profile Picture</label>
+            <input (change)="onSelectFile($event)" class="form-control" type="file" id="formFile"
+                   accept=".png, .jpg">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputLicenceId" class="form-label">License Number</label>
+            <input type="text" class="form-control" id="inputLicenceId" [(ngModel)]="doctor.licenceId"
+                   name="licenceId">
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputMedicineBranch" class="form-label">Medical Department</label>
+            <input type="text" class="form-control" id="inputMedicineBranch"
+                   [(ngModel)]="doctor.medicineBranch"
+                   name="medicineBranch">
+        </div>
+
+        <div class="col-md-12">
+            <label for="dropDown" class="form-label">Specialization</label>
+        </div>
+
+        <div class="btn-group">
+            <button id="dropDown" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"
+                    data-bs-display="static" aria-expanded="false">
+                {{dropdownSelected}}
+            </button>
+         <ul class="dropdown-menu w-100">
+  <li *ngFor="let specialization of specializations" class="w-100">
+    <button
+      (click)="dropDownClicked(specialization._id)"
+      class="dropdown-item w-100 text-start"
+      type="button">
+      {{ specialization._id }}
+    </button>
+  </li>
+</ul>
+
+        </div>
+
+    </fieldset>
+    <br>
+    <fieldset class="row m-2">
+        <div class="col-md-12">
+            <button id="saveChanges" type="submit" (click)="updateDoctorInfo()" class="btn btn-dark ">
+                Update
+            </button>
+        </div>
+    </fieldset>
+</form>
+
+<div id="alert" class="alert alert-danger" role="alert">
+    {{message}}
+</div>
+
+<div id="alertSuccess" class="alert alert-success" role="alert">
+    {{message}}
+</div>
+
+<br>
+
+
+
+

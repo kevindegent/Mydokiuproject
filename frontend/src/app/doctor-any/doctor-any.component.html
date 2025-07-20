@@ -1,0 +1,92 @@
+<app-navigation-doctor></app-navigation-doctor>
+
+<legend class="text-center">Services</legend>
+
+<form class="m-2">
+    <div class="d-flex">
+        <input class="form-control me-2" [(ngModel)]="appointmentType._id" name="nameAppId" type="text"
+               placeholder="Treatment Name">
+        <input class="form-control me-2 " [(ngModel)]="appointmentType.descriptionStrong" name="nameAppDesc"
+               type="text"
+               placeholder="Short Description">
+    </div>
+    <br>
+
+    <div class="d-flex">
+        <input class="form-control me-2" [(ngModel)]="appointmentType.description" name="nameAppDescStrong"
+               type="text"
+               placeholder="Detailed Description">
+    </div>
+
+    <br>
+
+    <div class="d-flex">
+        <input class="form-control me-2 " [(ngModel)]="appointmentType.price" name="nameAppPrice" type="number"
+               placeholder="Price">
+        <input class="form-control me-2 " [(ngModel)]="appointmentType.duration" name="nameAppDuration" type="number"
+               placeholder="Duration for consultation">
+    </div>
+
+    <br>
+
+    <fieldset id="exitedSpecializations">
+        <div class="d-flex">
+            <button *ngFor="let spec of specializations"
+                    [ngClass]="{'active' : appointmentType.specialization==spec._id}"
+                    class="form-control me-2 btn btn-outline-secondary"
+                    (click)="selection(spec._id)">{{spec._id}}
+            </button>
+        </div>
+    </fieldset>
+
+    <br>
+
+    <div class="d-flex">
+        <button type="submit" (click)="createAppointment()" class="btn btn-dark">Create new service</button>
+    </div>
+
+</form>
+
+<br>
+
+<div id="alert" class="alert alert-danger" role="alert">
+    {{message}}
+</div>
+
+<div id="alertSuccess" class="alert alert-success" role="alert">
+    {{message}}
+</div>
+
+<legend class="text-center">All Services in my Hospital</legend>
+<br>
+
+<div class="table-responsive-sm m-2">
+    <table class="table table-light table-bordered border-2">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Details</th>
+            <th>Dcotor</th>
+            <th>Specilization</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let appointmentType of appointmentTypes;  let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{appointmentType._id}}</td>
+            <td>{{appointmentType.descriptionStrong}}</td>
+            <td>{{appointmentType.description}}</td>
+            <td>{{appointmentType.doctors}}</td>
+            <td>{{appointmentType.specialization}}</td>
+            <td>{{appointmentType.price}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
