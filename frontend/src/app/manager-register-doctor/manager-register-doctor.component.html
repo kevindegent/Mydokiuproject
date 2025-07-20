@@ -49,7 +49,7 @@
         <label for="inputSpecialization" class="form-label">Specialisation</label>
         <select class="form-select" aria-label="Default select example" id="inputSpecialization"
                 [(ngModel)]="doctor.specialization" name="specialization">
-            <option selected>Odaberite specijalizaciju</option>
+            <option selected>Choose Specilization</option>
             <option *ngFor="let spec of specializations">{{spec._id}}</option>
         </select>
 
